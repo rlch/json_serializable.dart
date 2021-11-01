@@ -64,6 +64,8 @@ JsonSerializable _valueForAnnotation(ConstantReader reader) => JsonSerializable(
           reader.read('genericArgumentFactories').literalValue as bool?,
       ignoreUnannotated: reader.read('ignoreUnannotated').literalValue as bool?,
       includeIfNull: reader.read('includeIfNull').literalValue as bool?,
+      generatedExtension: 
+          reader.read('generatedExtension').literalValue as String?,
     );
 
 /// Returns a [JsonSerializable] with values from the [JsonSerializable]
@@ -106,6 +108,8 @@ ClassConfig mergeConfig(
             config.genericArgumentFactories),
     ignoreUnannotated: annotation.ignoreUnannotated ?? config.ignoreUnannotated,
     includeIfNull: annotation.includeIfNull ?? config.includeIfNull,
+    generatedExtension: 
+        annotation.generatedExtension ?? config.generatedExtension,
     ctorParamDefaults: paramDefaultValueMap,
   );
 }

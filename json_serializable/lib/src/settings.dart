@@ -64,6 +64,8 @@ class Settings {
         fieldRename: _config.fieldRename ?? ClassConfig.defaults.fieldRename,
         disallowUnrecognizedKeys: _config.disallowUnrecognizedKeys ??
             ClassConfig.defaults.disallowUnrecognizedKeys,
+        generatedExtension: _config.generatedExtension ??
+            ClassConfig.defaults.generatedExtension,
       );
 
   /// Creates an instance of [Settings].

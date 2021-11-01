@@ -186,6 +186,9 @@ class JsonSerializable {
   /// `includeIfNull`, that value takes precedent.
   final bool? includeIfNull;
 
+  /// The extension to use for generated files. Defaults to `.g.dart`.
+  final String? generatedExtension;
+
   /// Creates a new [JsonSerializable] instance.
   const JsonSerializable({
     @Deprecated('Has no effect') bool? nullable,
@@ -200,6 +203,7 @@ class JsonSerializable {
     this.ignoreUnannotated,
     this.includeIfNull,
     this.genericArgumentFactories,
+    this.generatedExtension,
   });
 
   factory JsonSerializable.fromJson(Map<String, dynamic> json) =>

@@ -23,17 +23,24 @@ Builder jsonPartBuilder({
 }) {
   final settings = Settings(config: config);
 
-  return SharedPartBuilder(
-    [
-      _UnifiedGenerator([
-        JsonSerializableGenerator.fromSettings(settings),
-        const JsonEnumGenerator(),
-      ]),
-      const JsonLiteralGenerator(),
-    ],
-    'json_serializable',
-    formatOutput: formatOutput,
-  );
+  final builders = [
+    _UnifiedGenerator([
+      JsonSerializableGenerator.fromSettings(settings),
+      const JsonEnumGenerator(),
+    ]),
+    const JsonLiteralGenerator(),
+  ];
+  return settings.config.generatedExtension != null
+      ? PartBuilder(
+          builders,
+          settings.config.generatedExtension!,
+          formatOutput: formatOutput,
+        ) 
+      : SharedPartBuilder(
+          builders,
+          'json_serializable',
+          formatOutput: formatOutput,
+        );
 }
 
 /// Allows exposing separate [GeneratorForAnnotation] instances as one

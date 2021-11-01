@@ -69,6 +69,9 @@ class ClassConfig implements JsonSerializable {
   @override
   final bool includeIfNull;
 
+  @override
+  final String? generatedExtension;
+
   final Map<String, String> ctorParamDefaults;
 
   const ClassConfig({
@@ -83,6 +86,7 @@ class ClassConfig implements JsonSerializable {
     required this.genericArgumentFactories,
     required this.ignoreUnannotated,
     required this.includeIfNull,
+    required this.generatedExtension,
     this.ctorParamDefaults = const {},
   });
 
@@ -100,6 +104,7 @@ class ClassConfig implements JsonSerializable {
     genericArgumentFactories: false,
     ignoreUnannotated: false,
     includeIfNull: true,
+    generatedExtension: null,
   );
 
   @override
@@ -130,4 +135,5 @@ Map<String, dynamic> _$JsonSerializableToJson(JsonSerializable instance) =>
       'generic_argument_factories': instance.genericArgumentFactories,
       'ignore_unannotated': instance.ignoreUnannotated,
       'include_if_null': instance.includeIfNull,
+      'generated_extension': instance.generatedExtension,
     };
